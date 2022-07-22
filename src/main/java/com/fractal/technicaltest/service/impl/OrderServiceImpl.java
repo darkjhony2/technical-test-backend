@@ -37,7 +37,17 @@ public class OrderServiceImpl implements OrderService {
             e.printStackTrace();
             return new ResponseEntity<String>("(e): " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        System.out.println("Saved");
         return ResponseEntity.ok("Saved");
+    }
+
+    @Override
+    public ResponseEntity<?> deleteById(Long id) {
+        try {
+            orderRepository.deleteById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<String>("(e): " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return ResponseEntity.ok("Deleted");
     }
 }

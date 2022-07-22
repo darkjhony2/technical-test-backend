@@ -30,18 +30,18 @@ public class TechnicalTestApplication {
 //		};
 //	}
 
-//	@Bean
-//	CommandLineRunner runner(OrderService orderService, ProductRepository productRepository){
-//		return args -> {
-//			System.out.println("1");
-//			List<Product> productList = new ArrayList<>();
-//			Product product1 = productRepository.findById(1L).orElse(null);
-//			Product product2 = productRepository.findById(2L).orElse(null);
-//			productList.add(product1);
-//			productList.add(product2);
-//			Order order = new Order(1L,"Ord00001", LocalDateTime.now(),2,productList);
-//			orderService.createOrder(order);
-//		};
-//	}
+	@Bean
+	CommandLineRunner runner(OrderService orderService, ProductRepository productRepository){
+		return args -> {
+			System.out.println("1");
+			List<Product> productList = new ArrayList<>();
+			Product product1 = productRepository.findById(1L).orElse(null);
+			Product product2 = productRepository.findById(2L).orElse(null);
+			productList.add(product1);
+			productList.add(product2);
+			Order order = new Order(1L,"Ord00001", LocalDateTime.now(),2,productList);
+			orderService.createOrder(order);
+		};
+	}
 
 }
