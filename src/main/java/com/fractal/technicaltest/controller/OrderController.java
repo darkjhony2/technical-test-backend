@@ -16,7 +16,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-
     @GetMapping
     public ResponseEntity<?> fetchAllOrder(){
         return orderService.getAllOrders();

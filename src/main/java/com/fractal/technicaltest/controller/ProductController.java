@@ -25,12 +25,12 @@ public class ProductController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> deleteOrder(@RequestParam Long id){
+    public ResponseEntity<?> deleteProduct(@RequestParam Long id){
         return productService.deleteById(id);
     }
 
     @PutMapping
-    public ResponseEntity<?> editOrder(@RequestBody Product product){
+    public ResponseEntity<?> editProduct(@RequestBody Product product){
         return productService.editProduct(product);
     }
 
