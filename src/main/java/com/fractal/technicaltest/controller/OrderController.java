@@ -22,9 +22,19 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
+    @PostMapping
+    public ResponseEntity<?> createOrder(@RequestBody Order order){
+        return orderService.createOrder(order);
+    }
+
     @DeleteMapping
     public ResponseEntity<?> deleteOrder(@RequestParam Long id){
         return orderService.deleteById(id);
+    }
+
+    @PutMapping
+    public ResponseEntity<?> editOrder(@RequestBody Order order){
+        return orderService.editOrder(order);
     }
 
 }

@@ -50,4 +50,18 @@ public class OrderServiceImpl implements OrderService {
         }
         return ResponseEntity.ok("Deleted");
     }
+
+    @Override
+    public ResponseEntity<?> editOrder(Order order) {
+        try {
+            Order orderDB = orderRepository.findById(order.getId()).orElse(null);
+            if(orderDB != null){
+                orderRepository.save(order);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<String>("(e): " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return ResponseEntity.ok("Edited");
+    }
 }

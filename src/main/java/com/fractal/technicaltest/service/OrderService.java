@@ -9,6 +9,6 @@ public interface OrderService {
 
     ResponseEntity<?> getAllOrders();
     ResponseEntity<?> createOrder(Order order);
-
     ResponseEntity<?> deleteById(Long id);
+    ResponseEntity<?> editOrder(Order order);
 }
